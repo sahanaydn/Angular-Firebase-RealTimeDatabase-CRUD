@@ -7,9 +7,12 @@ For development, you will only need Node.js  and a node global package, npm, ins
 
  
  
-## Installation
-  ```cd Angular-Firebase-RealTimeDatabase-CRUD```
- ``` npm install```
+## Install
+
+    
+    $ cd Angular-Firebase-RealTimeDatabase-CRUD
+    $ npm install
+
  
 ## Running the project
 
