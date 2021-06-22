@@ -1,10 +1,20 @@
 # Angular-Firebase-RealTimeDatabase-CRUD
  Crud operations with Angular and firebase
  
+## Requirements
+
+For development, you will only need Node.js  and a node global package, npm, installed in your environement.
+
+ 
  
 ## Installation
- cd Angular-Firebase-RealTimeDatabase-CRUD
- npm install
+ $ cd Angular-Firebase-RealTimeDatabase-CRUD
+ $ npm install
+ 
+## Running the project
+
+    $ ng serve --o
+ 
 
 
 ## Usage
@@ -13,8 +23,7 @@ firstly fill firebase connection info in ``` Angular-Firebase-RealTimeDatabase-C
 
 
 
-## Contributing
-Pull requestler kabul edilir. Büyük değişiklikler için, lütfen önce neyi değiştirmek istediğinizi tartışmak için bir konu açınız.
+
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
