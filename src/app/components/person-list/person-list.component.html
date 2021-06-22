@@ -1,0 +1,41 @@
+<div class="list row">
+  <div class="col-md-6">
+    <h4>Persons List</h4>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Full Name</th>
+          <th scope="col">E-mail</th>
+          <th scope="col">Age</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let person of persons; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActivePerson(person, i)"
+        >
+          <th scope="row">{{ person.fullName }}</th>
+          <td>{{ person.email }}</td>
+          <td>{{ person.age }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="m-3 btn btn-sm btn-danger" (click)="removeAllPersons()">
+      Remove All
+    </button>
+  </div>
+  <div class="col-md-6">
+    <div *ngIf="currentPerson">
+      <app-person-details
+        (refreshList)="refreshList()"
+        [person]="currentPerson"
+      ></app-person-details>
+    </div>
+
+    <div *ngIf="!currentPerson">
+      <br />
+      <p>Please click on a Person...</p>
+    </div>
+  </div>
+</div>

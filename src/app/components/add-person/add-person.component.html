@@ -1,0 +1,89 @@
+<div class="submit-form">
+  <form *ngIf="!submitted" [formGroup]="createPerson">
+    <div class="form-group">
+      <label for="title">Full Name</label>
+      <input
+        formControlName="fullName"
+        type="text"
+        class="form-control"
+        id="fullName"
+        required
+        [(ngModel)]="person.fullName"
+        name="fullName"
+      />
+      <div
+        class="alert alert-danger"
+        role="alert"
+        *ngIf="
+          createPerson.get('fullName').invalid &&
+          createPerson.get('fullName').touched
+        "
+      >
+        Name required, minimum 6 characters
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="description">E-mail</label>
+      <input
+        formControlName="email"
+        class="form-control"
+        id="email"
+        required
+        [(ngModel)]="person.email"
+        name="email"
+      />
+      <div
+        class="alert alert-danger"
+        role="alert"
+        *ngIf="
+          createPerson.get('email').invalid && createPerson.get('email').touched
+        "
+      >
+        Email required please enter correctly
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="description">Age</label>
+      <input
+        formControlName="age"
+        class="form-control"
+        id="age"
+        required
+        [(ngModel)]="person.age"
+        name="age"
+      />
+      <div
+        class="alert alert-danger"
+        role="alert"
+        *ngIf="
+          createPerson.get('age').invalid && createPerson.get('age').touched
+        "
+      >
+        Age is required. You can only enter a value between 18 and 100.
+      </div>
+    </div>
+
+
+    <div class="alert alert-info" role="alert">
+      If you enter all the information correctly, the submit button will appear.    </div>
+    <button
+      *ngIf="
+        createPerson.get('age').valid &&
+        createPerson.get('fullName').valid &&
+        createPerson.get('email').valid
+      "
+      (click)="savePerson()"
+      class="btn btn-success"
+    >
+      Submit
+    </button>
+
+    
+  </form>
+
+  <div *ngIf="submitted">
+    <h4>You submitted successfully!</h4>
+    <button class="btn btn-success" (click)="newPerson()">Add</button>
+  </div>
+</div>

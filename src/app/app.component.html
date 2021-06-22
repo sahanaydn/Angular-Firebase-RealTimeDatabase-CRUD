@@ -1,0 +1,89 @@
+<div *ngIf="!isSignedIn" class="container">
+  <div class="row">
+    <form class="col-sm-6">
+      <h1>Sign Up</h1>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          aria-describedby="emailHelp"
+          #emailSignup
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" #passwordSignup />
+      </div>
+
+      <button
+        type="submit"
+        class="btn btn-primary"
+        (click)="onSignup(emailSignup.value, passwordSignup.value)"
+      >
+        Sign Up
+      </button>
+
+      <div class="alert alert-success" role="alert" *ngIf="success">
+        {{ success }}
+      </div>
+
+      <div class="alert alert-danger" *ngIf="signupError">
+        {{ signupError }}
+      </div>
+    </form>
+
+    <form class="col-sm-6">
+      <h1>Log in</h1>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          aria-describedby="emailHelp"
+          #email
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" #password />
+      </div>
+
+      <button
+        type="submit"
+        class="btn btn-primary"
+        (click)="onSignin(email.value, password.value)"
+      >
+        Log in
+      </button>
+      <div class="alert alert-danger" *ngIf="loginError">
+        {{ loginError }}
+      </div>
+    </form>
+  </div>
+</div>
+
+<div *ngIf="isSignedIn">
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <a href="#" class="navbar-brand">Şahan Aydın</a>
+    <div class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a routerLink="persons" class="nav-link">Persons</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="add" class="nav-link">Add</a>
+      </li>
+    </div>
+  </nav>
+
+  <div class="container mt-3">
+    <button
+      (click)="handleLogout()"
+      type="button"
+      class="btn btn-outline-danger"
+    >
+      Log Out
+    </button>
+    <router-outlet></router-outlet>
+  </div>
+</div>

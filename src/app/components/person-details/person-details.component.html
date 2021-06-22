@@ -1,0 +1,53 @@
+<div *ngIf="currentPerson" class="edit-form">
+    <h4>Person</h4>
+    <form>
+      <div class="form-group">
+        <label for="fullName">Full Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="fullName"
+          [(ngModel)]="currentPerson.fullName"
+          name="fullName"
+        />
+      </div>
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <input
+          type="text"
+          class="form-control"
+          id="email"
+          [(ngModel)]="currentPerson.email"
+          name="email"
+        />
+      </div>
+      <div class="form-group">
+        <label for="age">Age</label>
+        <input
+          type="text"
+          class="form-control"
+          id="age"
+          [(ngModel)]="currentPerson.age"
+          name="age"
+        />
+      </div>
+  
+    
+    </form>
+  
+   
+  
+    <button class="badge badge-danger mr-2" (click)="deletePerson()">
+      Delete
+    </button>
+  
+    <button type="submit" class="badge badge-success" (click)="updatePerson()">
+      Update
+    </button>
+    <p>{{ message }}</p>
+  </div>
+  
+  <div *ngIf="!currentPerson">
+    <br />
+    <p>Cannot access this Tutorial...</p>
+  </div>
